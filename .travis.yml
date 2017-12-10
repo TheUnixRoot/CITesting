@@ -1,8 +1,5 @@
 language: cpp
 compiler: g++
-install: 
-  - cmake get-deps
-  - make get-deps
 os: linux
 sudo: required
 script:

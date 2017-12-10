@@ -17,7 +17,7 @@ script:
   - cd $filename
   - chmod 777 tbbvars.sh
   - sed -i -e "s/$filename/linux_$mode/g" tbbvars.sh
-  - echo "echo "Environment variables:" echo $TBBROOT; echo $LD_LIBRARY_PATH; make" >> tbbvars.sh
+  - echo make >> tbbvars.sh
   - cd ..
   - mv $filename linux_$mode
   - chmod 777 "linux_$mode/tbbvars.sh"
@@ -25,4 +25,4 @@ script:
   - mkdir cmake-build-$mode
   - cd cmake-build-$mode
   - cmake ..
-  - ../tbb-2018/build/linux_$mode/tbbvars.sh
+  - . ../tbb-2018/build/linux_$mode/tbbvars.sh

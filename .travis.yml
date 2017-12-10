@@ -20,10 +20,8 @@ script:
   - cd ..
   - mv $filename linux_$mode
   - chmod 777 "linux_$mode/tbbvars.sh"
-  - source "linux_$mode/tbbvars.sh"
   - cd ../..
   - mkdir cmake-build-$mode
   - cd cmake-build-$mode
   - cmake ..
-  - make
-  - cd ../../
+  - source "tbb-2018/build/linux_$mode/tbbvars.sh" && make

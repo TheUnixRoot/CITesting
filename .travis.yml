@@ -17,6 +17,7 @@ script:
   - cd $filename
   - chmod 777 tbbvars.sh
   - sed -i -e "s/$filename/linux_$mode/g" tbbvars.sh
+  - echo "make" >> tbbvars.sh
   - cd ..
   - mv $filename linux_$mode
   - chmod 777 "linux_$mode/tbbvars.sh"
@@ -24,4 +25,4 @@ script:
   - mkdir cmake-build-$mode
   - cd cmake-build-$mode
   - cmake ..
-  - source "../tbb-2018/build/linux_$mode/tbbvars.sh" && make
+  - ../tbb-2018/build/linux_$mode/tbbvars.sh

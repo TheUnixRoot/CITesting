@@ -24,4 +24,4 @@ script:
   - mkdir cmake-build-$mode
   - cd cmake-build-$mode
   - cmake ..
-  - source "tbb-2018/build/linux_$mode/tbbvars.sh" && make
+  - source "../tbb-2018/build/linux_$mode/tbbvars.sh" && make

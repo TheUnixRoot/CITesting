@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 mode=debug # or release
 git=https://github.com/TheUnixRoot/CITesting.git #
 url=https://github.com/01org/tbb/archive/2018_U2.tar.gz #

@@ -1,6 +1,9 @@
 language: cpp
-compiler: g++
-install: ./set-up-environment.sh
+  - compiler: g++
+install: 
+  - ./install_dependencies.sh
+  - cmake get-deps
+  - make get-deps
 os: linux
 addons:
   apt:
@@ -9,4 +12,23 @@ addons:
     packages:
       - cmake-data
       - cmake
-env: 
+script:
+  - mode=debug
+  - cd ./tbb-2018
+  - make
+  - cd build
+  - filename=$(ls | egrep _$mode) 
+  - echo $filename
+  - cd $filename
+  - chmod 777 tbbvars.sh
+  - sed -i -e "s/$filename/linux_$mode/g" tbbvars.sh
+  - cd ..
+  - mv $filename linux_$mode
+  - chmod 777 "linux_$mode/tbbvars.sh"
+  - source "linux_$mode/tbbvars.sh"
+  - cd ../../CITesting
+  - mkdir cmake-build-$mode
+  - cd cmake-build-$mode
+  - cmake ..
+  - make
+  - cd ../../

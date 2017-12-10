@@ -5,6 +5,7 @@ install:
   - cmake get-deps
   - make get-deps
 os: linux
+sudo: required
 script:
   - mode=debug
   - cd ./tbb-2018

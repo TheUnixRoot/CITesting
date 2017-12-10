@@ -1,12 +1,16 @@
 language: cpp
 compiler: g++
 install: 
-  - ./install_dependencies.sh
   - cmake get-deps
   - make get-deps
 os: linux
 sudo: required
 script:
+  - url=https://github.com/01org/tbb/archive/2018_U2.tar.gz
+  - filename=$(basename "$url")
+  - wget "$url"
+  - tar xzf $filename
+  - mv "tbb-2018_U2" ./tbb-2018
   - mode=debug
   - cd ./tbb-2018
   - make
